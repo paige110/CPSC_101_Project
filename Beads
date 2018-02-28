@@ -1,0 +1,23 @@
+package Score_4;
+
+import java.awt.*;
+
+public class Bead {
+
+    private Color c;
+
+    Bead(String colorName){
+        
+        colorName=colorName.toLowerCase();
+        
+        if(colorName.equals("black")){
+            c=Color.BLACK;
+        }else{
+            
+            c=Color.white;
+        }
+
+    }
+
+
+}
