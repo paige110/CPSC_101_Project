@@ -6,13 +6,17 @@ public class Peg  {
     private int height=0;
 
     public void addBead(Bead bead){      // Adding the bead to the peg
-        
-        if(height==4){
+
+        if(height>=4){
+
+            System.err.println("Maximum height of the Peg reached!");   // Printing an error line when going out of bounds
+
+        }else if(height>=0){
             
-            System.err.println("Maximum height of the Peg reached!");
-            
+            array[height]=bead; //  pointing the array index to the bead object
+
         }
-        
+
     }
 
 
