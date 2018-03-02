@@ -5,7 +5,11 @@ import java.awt.*;
 public class Bead {
 
     private Color c;
-     getx(){
+    private int x;
+    private int y;
+    private int z;
+    
+    public int getx(){
     return x;
     }   
     
