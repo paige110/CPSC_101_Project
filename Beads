@@ -5,6 +5,33 @@ import java.awt.*;
 public class Bead {
 
     private Color c;
+     getx(){
+    return x;
+    }   
+    
+    
+    public int gety(){
+    return y;
+    }
+    
+   
+    public int getz(){
+    return z;
+    }
+    
+  
+    
+    public bead(int x, int y, int z, Color color){
+    this.x=x;
+    this.y=y;
+    this.z=z;
+    this.color=color;
+    }
+    
+    
+    public Corlor getColor(){
+    return color;
+    }
 
     Bead(String colorName){
         
