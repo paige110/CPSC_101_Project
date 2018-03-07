@@ -12,7 +12,7 @@ public class GuiHandler {
     Player player2;
 
     public void createWindow(Player p1, Player p2) {
-        
+
         player1 = p1;
         player2 = p2;
 
@@ -35,14 +35,6 @@ public class GuiHandler {
 
         PaintComponent board = new PaintComponent();
 
-        area.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                System.out.println(e.getX() + "," + e.getY());
-
-            }
-        });
-
         sideBar.add(endTurn);
         sideBar.add(quit);
         sideBar.add(label1);
@@ -60,7 +52,7 @@ public class GuiHandler {
         jf.add(sideBar, BorderLayout.EAST);
         jf.add(p3, BorderLayout.PAGE_END);
         jf.setVisible(true);
-        
+
         System.out.println(player1.getName());
         System.out.println(player2.getName());
         System.out.println(player1.getColour());

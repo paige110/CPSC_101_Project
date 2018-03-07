@@ -27,6 +27,7 @@ public class Bead {
         Graphics2D g2 = (Graphics2D) g;
         bead = ImageIO.read(new File("images\\beadBlack.png"));
         g2.drawImage(bead, myX, myY, null);
+        
     }
        
 

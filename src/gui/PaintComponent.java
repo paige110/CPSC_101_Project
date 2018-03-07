@@ -3,13 +3,15 @@ package gui;
 import bead.Bead;
 import board.Board;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.*;
 import peg.Peg;
 
-public class PaintComponent extends JComponent {
+public class PaintComponent extends JComponent implements MouseListener {
 
     private final int myAx = 0;
     private final int myAy = 70;
@@ -20,7 +22,21 @@ public class PaintComponent extends JComponent {
     private final int myDx = 250;
     private final int myDy = 370;
 
+    boolean click = false;
+
+    int beadX;
+    int beadY;
+
     Board board = new Board();
+
+    public PaintComponent() {
+        addMouseListener(this);
+    }
+
+    public PaintComponent(int x, int y) {
+        beadX = x;
+        beadY = y;
+    }
 
     public Peg[] myPegs = {new Peg(myAx, myAy, "A1"),
         new Peg(myAx + 207, myAy - 43, "A2"),
@@ -60,22 +76,45 @@ public class PaintComponent extends JComponent {
             if peg.Height == 0
             Bead bead1 = new Bead(20, 395);
         }*/
-            Bead bead1 = new Bead(20, 395);
-            Bead bead2 = new Bead(20, 320);
-            Bead bead3 = new Bead(20, 245);
-            Bead bead4 = new Bead(20, 170);
-            bead1.drawWhite(g2);
-            bead2.drawBlack(g2);
-            bead3.drawWhite(g2);
-            bead4.drawBlack(g2);
 
-            //if player == black && mouse click == true
-            //Bead bead = new Bead(peg location);
-            //bead.drawBlack
+            if (click == true) {
+                Bead bead = new Bead(beadX, beadY);
+                bead.drawBlack(g2);
+            }
+
         } catch (IOException ex) {
             Logger.getLogger(PaintComponent.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        beadX = e.getX();
+        beadY = e.getY();
+        if (!click) {
+            beadX = e.getX();
+            beadY = e.getY();
+            click = true;
+        }
+        repaint();
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
     }
 
 }
