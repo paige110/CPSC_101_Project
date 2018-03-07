@@ -2,11 +2,9 @@ package peg;
 
 import bead.Bead;
 import java.awt.*;
-import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import javax.imageio.ImageIO;
-import javax.swing.*;
 
 public class Peg {
 
@@ -33,26 +31,11 @@ public class Peg {
         Graphics2D g2 = (Graphics2D) g;
         peg = ImageIO.read(new File("images\\peg2.png"));
         g2.drawImage(peg, myX, myY, null);
-        //JButton[] pegButtons = {};
-    }
-
-    public JButton pegButton() {
-        JButton button = new JButton(new ImageIcon("images\\peg2.png"));
-        button.setBorderPainted(false);
-        button.setFocusPainted(false);
-        button.setContentAreaFilled(false);
-        button.addActionListener(new PegListener());
-        return button;
-    }
-
-    public class PegListener implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent x) {
-            System.out.println("this is a peg");
-        }
+         
 
     }
+
+   
 
     public void addBead(Bead bead) {      // Adding the bead to the peg
         if (height >= 4) {

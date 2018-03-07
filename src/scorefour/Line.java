@@ -14,7 +14,7 @@ public class Line {
         int indexnumber = (indexPeg % 4),
                 height = currentPeg.height;
 
-        Color color = currentPeg.array[currentPeg.height].c;
+        Color color = currentPeg.array[currentPeg.height].getColour();
 
 
         if (color == pegs[indexnumber + 4].array[height].c && color == pegs[indexnumber + 8].array[height].c && color == pegs[indexnumber + 12].array[height].c) {    // To check beads at the same height of the bead added

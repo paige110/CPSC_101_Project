@@ -26,7 +26,7 @@ public class PaintComponent extends JComponent {
         new Peg(myAx + 207, myAy - 43, "A2"),
         new Peg(myAx + 413, myAy - 86, "A3"),
         new Peg(myAx + 620, myAy - 130, "A4"),
-        new Peg(myBx, myBy,  "B1"),
+        new Peg(myBx, myBy, "B1"),
         new Peg(myBx + 207, myAy + 57, "B2"),
         new Peg(myBx + 413, myAy + 14, "B3"),
         new Peg(myBx + 637, myAy - 39, "B4"),
@@ -44,11 +44,17 @@ public class PaintComponent extends JComponent {
 
         try {
             Graphics2D g2 = (Graphics2D) g;
+
             board.draw(g2);
+            int i = 0;
             for (Peg myPeg : myPegs) {
-                System.out.println(myPeg.getName());
+
+                String name = myPeg.getName();
+                i++;
+                System.out.println(name);
                 myPeg.draw(g2);
             }
+            System.out.println(i);
             /*if (player.getColour() == white && mouse click == true)
             {
             if peg.Height == 0
