@@ -67,10 +67,8 @@ public class PaintComponent extends JComponent implements MouseListener {
 
                 String name = myPeg.getName();
                 i++;
-                System.out.println(name);
                 myPeg.draw(g2);
             }
-            System.out.println(i);
             
             
             
