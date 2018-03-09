@@ -15,8 +15,10 @@ public class Game {
     Boolean nameBoolean = false;
 
     public void startGame() {
-        name1 = JOptionPane.showInputDialog(null, "Player 1,\nPlease Enter Your name: ");
-
+        name1 = JOptionPane.showInputDialog(null, "Player 1,\nPlease Enter Your name: ",JOptionPane.CANCEL_OPTION);
+        if(name1==null){
+         System.exit(0);   
+        }
         while (nameBoolean
                 == false) {
             if (name1 != null && !name1.isEmpty()) {
