@@ -42,7 +42,7 @@ public class GuiHandler {
 
   
         sideBar.add(quit);
-        sideBar.add(restart);
+        sideBar.add(start);
         sideBar.add(label1);
         sideBar.add(textest);
 
