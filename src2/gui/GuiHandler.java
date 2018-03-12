@@ -29,6 +29,7 @@ public class GuiHandler {
         
         Color myColour = new Color(195, 173, 173);
         area.setBackground(myColour);
+        JButton Toturn = new JButton("submit");
         JButton quit = new JButton("Quit");
         JButton start = new JButton("start");
         quit.addActionListener(lis);
