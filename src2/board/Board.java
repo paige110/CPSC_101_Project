@@ -13,18 +13,24 @@ public class Board {
  Point[] peglist=new Point[(rows+1)*(cols+1)];
  boolean gameOver=false;
  boolean isWhite=true;  
- int pegCount;
  int beadCount;
+ int xIndex,yIndex,zIndex;
     BufferedImage image;
 
     public Board() {
-
-    }
+       /* addMouseListener(this);
+        addMouseMotionListener(new MouseMotionListener(){
+         
+         @Override
+         public void mouseMoved(MouseEvent e){
+         }
+        
+        } 
+    }*/
     public void restartGame(){
-      for(int i=0;i<peg.length;i++)
-          peg[i]=null;
+      for(int i=0;i<peglist.length;i++)
+          peglist[i]=null;
        gameOver=false;
-       pegCount=0;
        beadCount=0;
        repaint();     
     }
