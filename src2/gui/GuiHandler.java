@@ -25,18 +25,24 @@ public class GuiHandler {
         JPanel p3 = new JPanel();
         sideBar.setBackground(Color.DARK_GRAY);
 
+        MyItemListener lis=new MyItemListener();
+        
         Color myColour = new Color(195, 173, 173);
         area.setBackground(myColour);
-        JButton endTurn = new JButton("Submit");
         JButton quit = new JButton("Quit");
+        JButton start = new JButton("start");
+        quit.addActionListener(lis);
+        start.addActionListener(lis);
+
 
         JLabel label1 = new JLabel("Current Turn: ");
         JLabel textest = new JLabel("lel");
 
         PaintComponent board = new PaintComponent();
 
-        sideBar.add(endTurn);
+  
         sideBar.add(quit);
+        sideBar.add(restart);
         sideBar.add(label1);
         sideBar.add(textest);
 
@@ -58,5 +64,15 @@ public class GuiHandler {
         System.out.println(player1.getColour());
         System.out.println(player2.getColour());
     }
-
+private class MyItemListener implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+    Object obj = e.getSource();
+        if(obj==start){
+         system.out.println("start a new game");
+         Board.restartGame();
+        }else if(obj==quit){
+         system.exit(0);
+        }
+    }
+}
 }
