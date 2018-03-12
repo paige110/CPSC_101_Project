@@ -2,14 +2,15 @@ package gui;
 
 import Player.Player;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import javax.swing.*;
 
 public class GuiHandler {
 
     Player player1;
     Player player2;
+    Color bg = new Color(176, 196, 222);
+    Color side = new Color(240, 248, 255);
+    Color bottom = new Color(220, 220, 220);
 
     public void createWindow(Player p1, Player p2) {
 
@@ -19,38 +20,46 @@ public class GuiHandler {
         JFrame jf = new JFrame("Team Caffeine - Score Four");
         jf.setSize(1280, 900);
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JPanel area = new JPanel(new BorderLayout());
-        JPanel sideBar = new JPanel();
-        sideBar.setLayout(new BoxLayout(sideBar, BoxLayout.PAGE_AXIS));
-        JPanel p3 = new JPanel();
-        sideBar.setBackground(Color.DARK_GRAY);
+        ImageIcon logo = new ImageIcon("images\\logo.png");
+        jf.setIconImage(logo.getImage());
 
-        Color myColour = new Color(195, 173, 173);
-        area.setBackground(myColour);
-        JButton endTurn = new JButton("Submit");
+        JButton submit = new JButton("Submit");
+        submit.setAlignmentX(Component.CENTER_ALIGNMENT);
+        JButton restart = new JButton("Restart");
+        submit.setAlignmentX(Component.BOTTOM_ALIGNMENT);
         JButton quit = new JButton("Quit");
-
-        JLabel label1 = new JLabel("Current Turn: ");
-        JLabel textest = new JLabel("lel");
+        quit.setAlignmentX(Component.BOTTOM_ALIGNMENT);
+        JTextArea textBox = new JTextArea();
+        textBox.setEditable(false);
 
         PaintComponent board = new PaintComponent();
 
-        sideBar.add(endTurn);
+        JPanel area = new JPanel(new BorderLayout());
+        area.setSize(1200, 820);
+        area.setBackground(bg);
+
+        JPanel sideBar = new JPanel();
+        sideBar.setLayout(new GridLayout(10, 0, 0, 20));
+        sideBar.setPreferredSize(new Dimension(150, 900));
+        sideBar.setBackground(side);
+
+        
+        sideBar.add(textBox);
+        sideBar.add(submit);
+        sideBar.add(restart);
         sideBar.add(quit);
-        sideBar.add(label1);
-        sideBar.add(textest);
 
         JLabel label = new JLabel("It is Currently " + player1.getName() + "'s turn.");
-        //JTextField textField = new JTextField("text field");
 
+        JPanel p3 = new JPanel();
+        p3.setBackground(bottom);
         p3.add(label);
-        //p3.add(textField);
-        label = new JLabel("It is Currently " + player2.getName() + "'s turn.");
-        p3.add(label);
+
         area.add(board, BorderLayout.CENTER);
-        jf.add(area, BorderLayout.CENTER);
-        jf.add(sideBar, BorderLayout.EAST);
+
+        jf.add(area);
         jf.add(p3, BorderLayout.PAGE_END);
+        jf.add(sideBar, BorderLayout.EAST);
         jf.setVisible(true);
 
         System.out.println(player1.getName());
