@@ -12,7 +12,9 @@ public class Board {
  public static int height=4;   
  Point[] peglist=new Point[(rows+1)*(cols+1)];
  boolean gameOver=false;
+ boolean isWhite=true;  
  int pegCount;
+ int beadCount;
     BufferedImage image;
 
     public Board() {
@@ -23,6 +25,7 @@ public class Board {
           peg[i]=null;
        gameOver=false;
        pegCount=0;
+       beadCount=0;
        repaint();     
     }
     public void draw(Graphics g) throws IOException {
