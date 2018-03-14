@@ -26,12 +26,24 @@ public class GuiHandler {
         JButton submit = new JButton("Submit");
         submit.setAlignmentX(Component.CENTER_ALIGNMENT);
         JButton restart = new JButton("Restart");
-        submit.setAlignmentX(Component.BOTTOM_ALIGNMENT);
+        restart.setAlignmentX(Component.BOTTOM_ALIGNMENT);
+        restart.addActionListener(new ActionListener(){
+         public void actionPerformed(ActionEvent e){
+           panel.ResetGame();
+           panel.repaint();
+         }
+       });   
         JButton quit = new JButton("Quit");
         quit.setAlignmentX(Component.BOTTOM_ALIGNMENT);
+        quit.addActionListener(new ActionListener(){
+         public void actionPerformed(ActionEvent e){
+           System.exit(0);
+         }
+       });
         JTextArea textBox = new JTextArea();
         textBox.setEditable(false);
-
+        
+        
         PaintComponent board = new PaintComponent();
 
         JPanel area = new JPanel(new BorderLayout());
